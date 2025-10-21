@@ -6,6 +6,7 @@
 <title>CheckMate.AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  /* Global Styles */
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -13,6 +14,13 @@
     color: white;
     overflow-x: hidden;
   }
+  h1, h2, h3, p {
+    margin: 0;
+  }
+  section {
+    padding: 80px 20px;
+  }
+  /* Hero Section */
   header {
     display: flex;
     flex-direction: column;
@@ -25,13 +33,11 @@
   }
   header h1 {
     font-size: 60px;
-    margin: 0;
-    animation: fadeIn 2s ease forwards;
+    margin-bottom: 20px;
   }
   header p {
     font-size: 24px;
-    margin: 20px 0 40px;
-    animation: fadeIn 3s ease forwards;
+    margin-bottom: 40px;
   }
   .cta-button {
     background-color: #ff6b6b;
@@ -41,19 +47,13 @@
     border-radius: 12px;
     cursor: pointer;
     color: white;
-    animation: fadeIn 4s ease forwards;
   }
-  @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px);}
-    100% { opacity: 1; transform: translateY(0);}
-  }
+  /* Features Section */
   .features {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 80px 20px;
     gap: 30px;
-    background: rgba(0,0,0,0.3);
   }
   .feature {
     background: rgba(255,255,255,0.05);
@@ -67,15 +67,32 @@
     transform: translateY(-10px);
     background: rgba(255,255,255,0.1);
   }
-  .feature h3 {
-    margin-bottom: 15px;
+  /* Target Audience Section */
+  .audience-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
   }
+  .audience {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .audience:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+  }
+  /* Footer */
   footer {
     text-align: center;
     padding: 30px;
     background: rgba(0,0,0,0.2);
   }
-  /* Floating circles animation */
+  /* Animated Circles */
   .circle {
     position: absolute;
     border-radius: 50%;
@@ -90,6 +107,8 @@
 </style>
 </head>
 <body>
+
+<!-- Hero Section -->
 <header>
   <div class="circle" style="width: 100px; height: 100px; top: 50px; left: 20%; animation-duration: 12s;"></div>
   <div class="circle" style="width: 150px; height: 150px; top: 200px; left: 70%; animation-duration: 15s;"></div>
@@ -100,23 +119,68 @@
   <button class="cta-button">Get Early Access</button>
 </header>
 
-<section class="features">
-  <div class="feature">
-    <h3>Smart Email Sorting</h3>
-    <p>Automatically categorize and prioritize your emails for maximum productivity.</p>
-  </div>
-  <div class="feature">
-    <h3>AI Calendar Assistant</h3>
-    <p>Schedule, remind, and optimize your meetings effortlessly with AI.</p>
-  </div>
-  <div class="feature">
-    <h3>Productivity Boost</h3>
-    <p>Focus on what matters while AI manages the rest of your day.</p>
+<!-- Features Section -->
+<section>
+  <h2 style="text-align:center; margin-bottom:50px;">Features</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Smart Email Sorting</h3>
+      <p>Automatically categorize and prioritize your emails for maximum productivity.</p>
+    </div>
+    <div class="feature">
+      <h3>AI Calendar Assistant</h3>
+      <p>Schedule, remind, and optimize your meetings effortlessly with AI.</p>
+    </div>
+    <div class="feature">
+      <h3>Email Summarization</h3>
+      <p>Long emails summarized automatically so you can save time reading.</p>
+    </div>
+    <div class="feature">
+      <h3>Suggested Replies</h3>
+      <p>AI generates smart reply suggestions to respond quickly.</p>
+    </div>
+    <div class="feature">
+      <h3>Analytics Dashboard</h3>
+      <p>Track email & meeting trends to improve personal productivity.</p>
+    </div>
+    <div class="feature">
+      <h3>Multi-Tool Integration</h3>
+      <p>Works with Google Workspace, Outlook, Slack, and more.</p>
+    </div>
   </div>
 </section>
 
+<!-- Target Audience Section -->
+<section style="background: rgba(0,0,0,0.3);">
+  <h2 style="text-align:center; margin-bottom:50px;">Target Audience</h2>
+  <div class="audience-cards">
+    <div class="audience">
+      <h3>Busy Professionals</h3>
+      <p>Save time managing emails and meetings efficiently.</p>
+    </div>
+    <div class="audience">
+      <h3>Startups & Teams</h3>
+      <p>Coordinate and optimize communication across your team.</p>
+    </div>
+    <div class="audience">
+      <h3>Freelancers & Consultants</h3>
+      <p>Manage multiple clients and projects without chaos.</p>
+    </div>
+    <div class="audience">
+      <h3>Students & Academics</h3>
+      <p>Keep track of project deadlines and communications smartly.</p>
+    </div>
+    <div class="audience">
+      <h3>Corporate Executives</h3>
+      <p>Get AI insights to improve time management and focus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
   &copy; 2025 CheckMate.AI | All Rights Reserved
 </footer>
+
 </body>
 </html>
