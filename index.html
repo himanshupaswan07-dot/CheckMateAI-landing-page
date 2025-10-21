@@ -4,202 +4,158 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CheckMate.AI</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@0.254.0/dist/lucide.min.css">
 <style>
-  /* Global */
-  * { margin:0; padding:0; box-sizing:border-box;}
-  body {
-    font-family:'Roboto', sans-serif;
-    background:#0f2027;
-    color:white;
-    scroll-behavior:smooth;
-  }
-  a {text-decoration:none; color:white;}
-  h1,h2,h3 {margin-bottom:15px;}
-  p {margin-bottom:10px; line-height:1.5;}
-  
-  /* Hero Section */
-  header {
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
-    text-align:center;
-    overflow:hidden;
-  }
-  header h1 {
-    font-size:60px;
-    animation: fadeUp 1.5s ease forwards;
-  }
-  header p {
-    font-size:24px;
-    margin:20px 0 40px;
-    animation: fadeUp 2s ease forwards;
-  }
-  .cta-button {
-    background:#ff6b6b;
-    border:none;
-    padding:18px 40px;
-    font-size:20px;
-    border-radius:12px;
-    cursor:pointer;
-    color:white;
-    animation: pulse 2s infinite;
-    transition: transform 0.3s;
-  }
-  .cta-button:hover {transform: scale(1.1);}
-  
-  @keyframes fadeUp {
-    0% {opacity:0; transform: translateY(30px);}
-    100% {opacity:1; transform: translateY(0);}
-  }
-  @keyframes pulse {
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.05);}
-  }
+/* ---------- Global ---------- */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+body {background:#FFFFFF; color:#333333; scroll-behavior:smooth;}
+a {text-decoration:none; color:inherit;}
+button {cursor:pointer;}
 
-  /* Background particles */
-  .particle {
-    position:absolute;
-    border-radius:50%;
-    background: rgba(255,255,255,0.08);
-    animation: float 10s infinite linear;
-  }
-  @keyframes float {
-    0%{transform: translateY(0) translateX(0);}
-    50%{transform: translateY(-50px) translateX(50px);}
-    100%{transform: translateY(0) translateX(0);}
-  }
+/* ---------- Header / Top Bar ---------- */
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background:white;
+  border-bottom:1px solid #eee;
+  position:sticky; top:0; z-index:1000;
+}
+header .logo {font-weight:700; font-size:24px; color:#007AFF;}
+header nav a {margin-left:30px; font-weight:500; color:#007AFF;}
+header nav a:hover {text-decoration:underline;}
 
-  /* Features Section */
-  section.features {
-    padding:100px 20px;
-    background: linear-gradient(to bottom, rgba(15,32,39,0.95), rgba(32,58,67,0.95));
-  }
-  .features-container {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-  }
-  .feature-card {
-    background: rgba(255,255,255,0.05);
-    padding:40px;
-    border-radius:20px;
-    width:300px;
-    text-align:center;
-    transform: translateY(30px);
-    opacity:0;
-    transition: all 0.5s ease;
-  }
-  .feature-card.show {
-    transform: translateY(0);
-    opacity:1;
-  }
-  .feature-card:hover {transform: translateY(-10px) scale(1.05); background: rgba(255,255,255,0.1);}
+/* ---------- Hero Section ---------- */
+.hero {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px;
+  background: linear-gradient(135deg, #007AFF, #00C4FF);
+  color:white;
+}
+.hero h1 {font-size:48px; font-weight:700; margin-bottom:20px;}
+.hero p {font-size:20px; margin-bottom:40px; max-width:700px;}
+.hero button {
+  background:white; color:#007AFF; border:none; padding:15px 35px; font-size:18px; border-radius:10px; font-weight:600;
+  transition: transform 0.3s;
+}
+.hero button:hover {transform:scale(1.05);}
 
-  /* Target Audience */
-  section.audience {
-    padding:100px 20px;
-    background: rgba(0,0,0,0.3);
-  }
-  .audience-container {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-  }
-  .audience-card {
-    background: rgba(255,255,255,0.05);
-    padding:30px;
-    border-radius:20px;
-    width:280px;
-    text-align:center;
-    transform: translateY(30px);
-    opacity:0;
-    transition: all 0.5s ease;
-  }
-  .audience-card.show {
-    transform: translateY(0);
-    opacity:1;
-  }
-  .audience-card:hover {transform: translateY(-10px) scale(1.03); background: rgba(255,255,255,0.1);}
+/* ---------- Problem Section ---------- */
+.section {padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center;}
+.section h2 {font-size:36px; font-weight:700; margin-bottom:30px;}
+.section p {font-size:20px; max-width:800px; margin:0 auto;}
 
-  /* Footer */
-  footer {text-align:center; padding:30px; background: rgba(0,0,0,0.2);}
-  
-  /* Responsive */
-  @media(max-width:768px){
-    header h1 {font-size:45px;}
-    header p {font-size:20px;}
-    .features-container,.audience-container {flex-direction:column; align-items:center;}
-  }
+/* ---------- Solution Section ---------- */
+.steps {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:50px;}
+.step-card {background:#F7F9FC; padding:40px; border-radius:20px; width:250px; text-align:center; transition:transform 0.3s;}
+.step-card:hover {transform:translateY(-10px);}
+.step-card h3 {margin-bottom:15px; color:#007AFF;}
+
+/* ---------- Features Section ---------- */
+.features {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:50px;}
+.feature-card {background:#F7F9FC; padding:40px; border-radius:20px; width:250px; text-align:center; transition:transform 0.3s;}
+.feature-card:hover {transform:translateY(-10px);}
+.feature-card h3 {margin-bottom:15px; color:#007AFF; font-size:20px;}
+.feature-card p {font-size:16px;}
+
+/* ---------- Testimonials / Waitlist ---------- */
+.testimonials {background:#007AFF; color:white; padding:80px 20px; text-align:center;}
+.testimonials h2 {font-size:36px; margin-bottom:30px;}
+.testimonials p {font-size:20px; max-width:700px; margin:0 auto;}
+
+/* ---------- Footer ---------- */
+footer {background:#333333; color:white; text-align:center; padding:40px 20px; margin-top:50px;}
+footer p {font-size:16px;}
+
+/* ---------- Responsive ---------- */
+@media(max-width:768px){
+  header {flex-direction:column; gap:10px;}
+  .steps, .features {flex-direction:column; align-items:center;}
+}
 </style>
 </head>
 <body>
 
-<!-- Hero Section -->
+<!-- Header -->
 <header>
-  <!-- Floating particles -->
-  <div class="particle" style="width:80px;height:80px;top:50px;left:10%;animation-duration:12s;"></div>
-  <div class="particle" style="width:120px;height:120px;top:200px;left:70%;animation-duration:15s;"></div>
-  <div class="particle" style="width:60px;height:60px;top:400px;left:40%;animation-duration:10s;"></div>
-
-  <h1>CheckMate.AI</h1>
-  <p>Your AI-powered Inbox & Calendar Manager</p>
-  <button class="cta-button">Get Early Access</button>
+  <div class="logo">CheckMate.AI</div>
+  <nav>
+    <a href="#login">Login</a>
+    <a href="#join">Join Beta</a>
+  </nav>
 </header>
 
-<!-- Features Section -->
-<section class="features">
-  <h2 style="text-align:center;margin-bottom:50px;">Features</h2>
-  <div class="features-container">
-    <div class="feature-card"> <h3>Smart Email Sorting</h3> <p>Automatically categorize and prioritize your emails.</p> </div>
-    <div class="feature-card"> <h3>AI Calendar Assistant</h3> <p>Schedule, remind, and optimize your meetings effortlessly.</p> </div>
-    <div class="feature-card"> <h3>Email Summarization</h3> <p>Long emails summarized automatically to save time.</p> </div>
-    <div class="feature-card"> <h3>Suggested Replies</h3> <p>AI generates smart reply suggestions for quick responses.</p> </div>
-    <div class="feature-card"> <h3>Analytics Dashboard</h3> <p>Track email & meeting trends to improve productivity.</p> </div>
-    <div class="feature-card"> <h3>Multi-Tool Integration</h3> <p>Works with Google Workspace, Outlook, Slack, and more.</p> </div>
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Your Smart AI Assistant for Inbox & Calendar</h1>
+  <p>Let AI handle your emails, meetings, and focus — so you can do what you love.</p>
+  <button>Get Early Access</button>
+</section>
+
+<!-- Problem Section -->
+<section class="section" id="problem">
+  <h2>Why CheckMate.AI?</h2>
+  <p>Freelancers lose 4+ hours weekly managing emails & meetings. CheckMate.AI fixes that.</p>
+</section>
+
+<!-- Solution Section -->
+<section class="section" id="solution">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step-card">
+      <h3>Step 1️⃣ Connect Gmail</h3>
+      <p>Securely connect your Gmail or other email accounts to start.</p>
+    </div>
+    <div class="step-card">
+      <h3>Step 2️⃣ AI Sorts Emails</h3>
+      <p>Smart AI automatically categorizes emails & prioritizes important ones.</p>
+    </div>
+    <div class="step-card">
+      <h3>Step 3️⃣ Auto Replies & Calendar Sync</h3>
+      <p>AI suggests replies & syncs meetings with your calendar effortlessly.</p>
+    </div>
   </div>
 </section>
 
-<!-- Target Audience Section -->
-<section class="audience">
-  <h2 style="text-align:center;margin-bottom:50px;">Target Audience</h2>
-  <div class="audience-container">
-    <div class="audience-card"><h3>Busy Professionals</h3><p>Save time managing emails and meetings efficiently.</p></div>
-    <div class="audience-card"><h3>Startups & Teams</h3><p>Coordinate and optimize communication across your team.</p></div>
-    <div class="audience-card"><h3>Freelancers & Consultants</h3><p>Manage multiple clients and projects without chaos.</p></div>
-    <div class="audience-card"><h3>Students & Academics</h3><p>Keep track of deadlines and communications smartly.</p></div>
-    <div class="audience-card"><h3>Corporate Executives</h3><p>Get AI insights to improve time management and focus.</p></div>
+<!-- Features Section -->
+<section class="section" id="features">
+  <h2>Key Features</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>🧘‍♂️ Focus Mode</h3>
+      <p>Block distractions and focus on important tasks while AI manages the rest.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🤖 Smart Auto Reply</h3>
+      <p>AI drafts intelligent replies so you save time responding to emails.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📅 AI Calendar Sync</h3>
+      <p>Automatically schedules, reschedules, and optimizes your calendar.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📊 Workload Tracker</h3>
+      <p>Analyze your email & meeting patterns to improve productivity.</p>
+    </div>
   </div>
+</section>
+
+<!-- Testimonials / Beta Waitlist -->
+<section class="testimonials">
+  <h2>Join Our Beta Waitlist</h2>
+  <p>Join 500+ freelancers waiting to automate their inbox and reclaim their time.</p>
 </section>
 
 <!-- Footer -->
 <footer>
-  &copy; 2025 CheckMate.AI | All Rights Reserved
+  <p>© 2025 CheckMate.AI — Built for Smart Freelancers.</p>
 </footer>
-
-<script>
-  // Animate features and audience on scroll
-  function revealOnScroll() {
-    let featureCards = document.querySelectorAll('.feature-card');
-    let audienceCards = document.querySelectorAll('.audience-card');
-    const windowHeight = window.innerHeight;
-    featureCards.forEach(card => {
-      const cardTop = card.getBoundingClientRect().top;
-      if(cardTop < windowHeight - 100) card.classList.add('show');
-    });
-    audienceCards.forEach(card => {
-      const cardTop = card.getBoundingClientRect().top;
-      if(cardTop < windowHeight - 100) card.classList.add('show');
-    });
-  }
-  window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', revealOnScroll);
-</script>
 
 </body>
 </html>
