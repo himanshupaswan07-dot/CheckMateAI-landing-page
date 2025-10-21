@@ -1,83 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CheckMate.AI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #4b6cb7, #182848);
-      color: white;
-    }
-    header {
-      text-align: center;
-      padding: 80px 20px;
-    }
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    header p {
-      font-size: 20px;
-      margin-bottom: 40px;
-    }
-    .cta-button {
-      background-color: #ff6b6b;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      color: white;
-    }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 50px 20px;
-      gap: 20px;
-    }
-    .feature {
-      background: rgba(255,255,255,0.1);
-      padding: 30px;
-      border-radius: 12px;
-      width: 300px;
-      text-align: center;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: rgba(0,0,0,0.2);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CheckMate.AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    overflow-x: hidden;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header h1 {
+    font-size: 60px;
+    margin: 0;
+    animation: fadeIn 2s ease forwards;
+  }
+  header p {
+    font-size: 24px;
+    margin: 20px 0 40px;
+    animation: fadeIn 3s ease forwards;
+  }
+  .cta-button {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 18px 40px;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    animation: fadeIn 4s ease forwards;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+  }
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 80px 20px;
+    gap: 30px;
+    background: rgba(0,0,0,0.3);
+  }
+  .feature {
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .feature:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+  }
+  .feature h3 {
+    margin-bottom: 15px;
+  }
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.2);
+  }
+  /* Floating circles animation */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    animation: float 10s infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0);}
+    50% { transform: translateY(-50px) translateX(50px);}
+    100% { transform: translateY(0) translateX(0);}
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>CheckMate.AI</h1>
-    <p>Your AI-powered Inbox & Calendar Manager</p>
-    <button class="cta-button">Get Early Access</button>
-  </header>
+<header>
+  <div class="circle" style="width: 100px; height: 100px; top: 50px; left: 20%; animation-duration: 12s;"></div>
+  <div class="circle" style="width: 150px; height: 150px; top: 200px; left: 70%; animation-duration: 15s;"></div>
+  <div class="circle" style="width: 80px; height: 80px; top: 400px; left: 40%; animation-duration: 10s;"></div>
 
-  <section class="features">
-    <div class="feature">
-      <h3>Smart Email Sorting</h3>
-      <p>Automatically categorize and prioritize your emails.</p>
-    </div>
-    <div class="feature">
-      <h3>AI Calendar Assistant</h3>
-      <p>Schedule, remind, and optimize your meetings effortlessly.</p>
-    </div>
-    <div class="feature">
-      <h3>Productivity Boost</h3>
-      <p>Focus on what matters with AI managing the rest.</p>
-    </div>
-  </section>
+  <h1>CheckMate.AI</h1>
+  <p>Your AI-powered Inbox & Calendar Manager</p>
+  <button class="cta-button">Get Early Access</button>
+</header>
 
-  <footer>
-    &copy; 2025 CheckMate.AI | All Rights Reserved
-  </footer>
+<section class="features">
+  <div class="feature">
+    <h3>Smart Email Sorting</h3>
+    <p>Automatically categorize and prioritize your emails for maximum productivity.</p>
+  </div>
+  <div class="feature">
+    <h3>AI Calendar Assistant</h3>
+    <p>Schedule, remind, and optimize your meetings effortlessly with AI.</p>
+  </div>
+  <div class="feature">
+    <h3>Productivity Boost</h3>
+    <p>Focus on what matters while AI manages the rest of your day.</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 CheckMate.AI | All Rights Reserved
+</footer>
 </body>
-  </html>
+</html>
